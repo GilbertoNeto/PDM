@@ -2,9 +2,11 @@ class Pessoa (private var nome:String, private var renda:Double)  {
 
 
     private var tipoCorrupcao = ArrayList<TiposCorrupcao>()
+    private var verifica:Boolean = true
 
     override fun toString(): String {
-        return "Nome da Pessoa: ${this.nome} - Renda Mensal: ${this.renda}"
+        return "Nome: ${this.nome} - Renda Mensal: ${this.renda} - " +
+                "Tipos de corrupcao realizadas:  ${this.tipoCorrupcao}"
     }
 
     fun adicionarCorrupcao(corrupto: TiposCorrupcao){
@@ -13,24 +15,24 @@ class Pessoa (private var nome:String, private var renda:Double)  {
 
     fun corruptoAtivo():Boolean {
         if(this.tipoCorrupcao.contains(TiposCorrupcao.ATIVA)) {
-            var bool:Boolean = true
+            return verifica
         }
-        return true
+        return false
     }
 
     fun corruptoPassivo():Boolean {
         if(this.tipoCorrupcao.contains(TiposCorrupcao.PASSIVA)) {
-            var bool:Boolean = true
-            print("O ${this.nome} eh corrupto")
+            return verifica
         }
-        return true
+
+        return false
     }
 
     fun corruptoSistemico():Boolean {
-        if(this.tipoCorrupcao.contains(TiposCorrupcao.ATIVA)) {
-            var bool:Boolean = true
+        if(this.tipoCorrupcao.contains(TiposCorrupcao.SISTEMICA)) {
+            return verifica
         }
-        return true
+        return false
     }
 
 }

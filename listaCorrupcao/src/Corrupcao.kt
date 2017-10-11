@@ -12,12 +12,17 @@ fun main(args: Array<String>) {
     var p4 = Pessoa("Berg Lima", 12000.00)
     var p5 = Pessoa("Dilma Rouseff", 120.00)
 
+    var contIni:Int = 0
+    var contInt:Int = 0
+    var contAdv:Int = 0
+
     //Chamada para adicionar os tipos de corrupçao aos individuos
     p1.adicionarCorrupcao(TiposCorrupcao.PASSIVA)
     p1.adicionarCorrupcao(TiposCorrupcao.ATIVA)
 
     p.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
     p3.adicionarCorrupcao(TiposCorrupcao.PASSIVA)
+    p3.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
     p2.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
 
     p4.adicionarCorrupcao(TiposCorrupcao.ATIVA)
@@ -39,20 +44,34 @@ fun main(args: Array<String>) {
         if (c.corruptoAtivo() == true){
             var ini = Iniciante(c)
             listaIniciante.add(ini)
+            contIni++
         }
 
         if(c.corruptoPassivo() == true){
             var int = Intermediario(c)
             listaMedia.add(int)
+            contInt++
         }
 
         if(c.corruptoSistemico() == true){
             var adv = Avancado(c)
             listaAvancada.add(adv)
+            contAdv++
+
         }
 
     }
 
-    println("Total de corruptos iniciantes: ${listaIniciante.size}")
+
+    println("Total de corruptos ativos/iniciantes: ${contIni}")
+    println("Total de corruptos passivos/intermediarios: ${contInt}")
+    println("Total de corruptos sistemicos/avançados: ${contAdv}")
+    println("\n\n")
+
+    println("----------- Individuos e suas corrupçoes --------- \n\n")
+    for(c in arrayCorrupto){
+
+        println(c.toString())
+    }
 
  }
