@@ -5,12 +5,19 @@ class Pessoa (private var nome:String, private var renda:Double)  {
     private var verifica:Boolean = true
 
     override fun toString(): String {
-        return "Nome: ${this.nome} - Renda Mensal: ${this.renda} - " +
+        return "Nome: ${this.nome} - Renda Mensal: ${this.renda}R$ - " +
                 "Tipos de corrupcao realizadas:  ${this.tipoCorrupcao}"
     }
 
     fun adicionarCorrupcao(corrupto: TiposCorrupcao){
         tipoCorrupcao.add(corrupto)
+    }
+
+    fun corrupcaoLeve():Boolean{
+        if(this.tipoCorrupcao.isEmpty()){
+            return verifica
+        }
+        return false
     }
 
     fun corruptoAtivo():Boolean {

@@ -5,67 +5,69 @@ fun main(args: Array<String>) {
      var listaAvancada = ArrayList<Avancado>()
 
     // Criaçao das Pessoas corruptas
-    var p = Pessoa("Michel Temer", 10000.000)
-    var p1 = Pessoa ("Aecio Neves", 200000.00)
-    var p2 = Pessoa("Cassio Cunha Lima", 300000.000)
-    var p3 = Pessoa ("Bolsonaro Facista", 15.50)
-    var p4 = Pessoa("Berg Lima", 12000.00)
-    var p5 = Pessoa("Dilma Rouseff", 120.00)
+    var mt = Pessoa("Michel Temer", 10000.000)
+    var an = Pessoa ("Aecio Neves", 200000.00)
+    var ccl = Pessoa("Cassio Cunha Lima", 300000.000)
+    var bf = Pessoa ("Bolsonaro Facista", 15.99)
+    var bl = Pessoa("Berg Lima", 12000.00)
+    var dm = Pessoa("Dilma Rouseff", 120.00)
+    var jg = Pessoa("Joao de Deus", renda = 10.00)
 
     var contIni:Int = 0
     var contInt:Int = 0
     var contAdv:Int = 0
 
     //Chamada para adicionar os tipos de corrupçao aos individuos
-    p1.adicionarCorrupcao(TiposCorrupcao.PASSIVA)
-    p1.adicionarCorrupcao(TiposCorrupcao.ATIVA)
+    an.adicionarCorrupcao(TiposCorrupcao.PASSIVA)
+    an.adicionarCorrupcao(TiposCorrupcao.ATIVA)
 
-    p.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
-    p3.adicionarCorrupcao(TiposCorrupcao.PASSIVA)
-    p3.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
-    p2.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
+    mt.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
+    ccl.adicionarCorrupcao(TiposCorrupcao.PASSIVA)
+    ccl.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
+    an.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
 
-    p4.adicionarCorrupcao(TiposCorrupcao.ATIVA)
-    p4.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
 
-    p5.adicionarCorrupcao(TiposCorrupcao.ATIVA)
+    bl.adicionarCorrupcao(TiposCorrupcao.ATIVA) // Argumenta que foi vitima a todo custo
+    bl.adicionarCorrupcao(TiposCorrupcao.SISTEMICA)
+
+    dm.adicionarCorrupcao(TiposCorrupcao.ATIVA)
 
     //Criando uma lista de arrays com Pessoas
     var arrayCorrupto = ArrayList<Pessoa>()
-    arrayCorrupto.add(p)
-    arrayCorrupto.add(p1)
-    arrayCorrupto.add(p2)
-    arrayCorrupto.add(p3)
-    arrayCorrupto.add(p4)
-    arrayCorrupto.add(p5)
+    arrayCorrupto.add(mt)
+    arrayCorrupto.add(an)
+    arrayCorrupto.add(ccl)
+    arrayCorrupto.add(bf)
+    arrayCorrupto.add(bl)
+    arrayCorrupto.add(dm)
 
-    for (c in arrayCorrupto){
+    //Atribuindo as Pessoas a suas categorias de corrupçao por niveis Iniciante, Intermediario e Avançado
 
-        if (c.corruptoAtivo() == true){
-            var ini = Iniciante(c)
-            listaIniciante.add(ini)
-            contIni++
-        }
+    //Iniciantes
+    var i1 = Iniciante(jg, "Furto de alimento em mercado publico")
+    listaIniciante.add(i1)
 
-        if(c.corruptoPassivo() == true){
-            var int = Intermediario(c)
-            listaMedia.add(int)
-            contInt++
-        }
+    //Intermediarios
+    var int1 = Intermediario(dm,TiposCorrupcao.ATIVA, 100000.000)
+    var int2 = Intermediario(bf, TiposCorrupcao.PASSIVA, 30000.00)
+    listaMedia.add(int1)
+    listaMedia.add(int2)
 
-        if(c.corruptoSistemico() == true){
-            var adv = Avancado(c)
-            listaAvancada.add(adv)
-            contAdv++
+    //Avançados
+    var adv1 = Avancado(mt,TiposCorrupcao.SISTEMICA,5000000.000, 42)
+    var adv2 = Avancado(an,TiposCorrupcao.SISTEMICA, 1000000.000, freq = 10)
+    var adv3 = Avancado(ccl,TiposCorrupcao.SISTEMICA, 4000000.000, freq = 30)
+    var adv4 = Avancado(bl,TiposCorrupcao.SISTEMICA, 30000.000, freq = 2)
 
-        }
+    listaAvancada.add(adv1)
+    listaAvancada.add(adv2)
+    listaAvancada.add(adv3)
+    listaAvancada.add(adv4)
 
-    }
 
-
-    println("Total de corruptos ativos/iniciantes: ${contIni}")
-    println("Total de corruptos passivos/intermediarios: ${contInt}")
-    println("Total de corruptos sistemicos/avançados: ${contAdv}")
+    println("Total de corruptos ativos/iniciantes: ${listaIniciante.size}")
+    println("Total de corruptos passivos/intermediarios: ${listaMedia.size}")
+    println("Total de corruptos sistemicos/avançados: ${listaAvancada.size}")
     println("\n\n")
 
     println("----------- Individuos e suas corrupçoes --------- \n\n")
