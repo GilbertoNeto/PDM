@@ -9,37 +9,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center"
+        android:layout_weight="1"
         android:orientation="vertical">
-    <Button
-        android:id="@+id/btCamera"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Utilizar Camera"
-        android:layout_weight="1"
-        />
 
-        <TextView
-            android:id="@+id/tvFuncionou"
+        <Button
+            android:id="@+id/btCamera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_weight="1"/>
+            android:gravity="center"
+            android:text="Utilizar Camera p/ compartilhar no zap"
+
+            />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center">
-    <Button
-        android:id="@+id/btCompartilha"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Compartilhar foto no ZAP" />
-    </LinearLayout>
 
 </LinearLayout>

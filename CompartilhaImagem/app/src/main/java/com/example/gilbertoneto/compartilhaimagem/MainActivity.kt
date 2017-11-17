@@ -29,33 +29,36 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         this.btCamera = findViewById(R.id.btCamera)
-        this.btCompartilhar = findViewById(R.id.btCompartilha)
-        this.tvFunciona = findViewById(R.id.tvFuncionou)
 
         this.btCamera.setOnClickListener({tiraFoto(it)})
     }
 
     fun tiraFoto(view:View){
 
-        val mLocationForPhotos: Uri
-        var dir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-       var arquivo = File(dir, "foto.jpg")
 
-        mLocationForPhotos = Uri.fromFile(arquivo)
+        val itPhoto = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
-        val it = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        it.putExtra(MediaStore.EXTRA_OUTPUT, mLocationForPhotos)
 
 //        it.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(arquivo))
 
-        startActivityForResult(it, CAPTURE)
+        startActivityForResult(itPhoto, CAPTURE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CAPTURE && resultCode == Activity.RESULT_OK && data != null){
             if (requestCode == 1) {
-                tvFunciona.setText("FUNCIONOU")
+
+
+                val itComp = Intent(Intent.ACTION_SEND)
+
+                val itPhoto = data?.extras
+
+                itComp.setType("image/*")
+                itComp.putExtra(Intent.EXTRA_STREAM, itPhoto)
+
+                startActivity(itComp)
+
             }
         }
     }
