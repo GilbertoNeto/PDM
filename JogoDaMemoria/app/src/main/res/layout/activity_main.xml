@@ -10,13 +10,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Escolha um time abaixo para participar do jogo da memoria"
+            android:layout_weight="1"
+            android:text="Encontre o par de times iguais abaixo"
+            android:textSize="24dp"/>
+
+        <TextView
+            android:id="@+id/tvTentativa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text=""
             android:textSize="24dp"/>
 
     </LinearLayout>
@@ -35,25 +46,12 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/botafogo"
+                android:src="@drawable/question"
                 android:layout_weight="1"
-                android:id="@+id/tvMainImgBot"
-                android:clickable="true"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:src="@drawable/chapecoense"
-                android:layout_weight="1"
-                android:id="@+id/tvMainImgCha"
+                android:id="@+id/tvMemoriaImg1"
                 android:clickable="true"
-                />
+                android:onClick="verificaTime"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -61,13 +59,31 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/gremio"
+                android:src="@drawable/question"
                 android:layout_weight="1"
-                android:id="@+id/tvMainImgGre"
-                android:clickable="true"/>
+                android:id="@+id/tvMemoriaImg2"
+                android:clickable="true"
+                android:onClick="verificaTime"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                android:id="@+id/tvMemoriaImg3"
+                android:clickable="true"
+                android:onClick="verificaTime"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -82,14 +98,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="horizontal">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/vasco"
-            android:layout_weight="1"
-            android:id="@+id/tvMainImgVas"
-            android:clickable="true"/>
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                android:id="@+id/tvMemoriaImg4"
+                android:clickable="true"
+                android:onClick="verificaTime"
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -97,13 +117,15 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/atletico"
-            android:layout_weight="1"
-            android:id="@+id/tvMainImgAlt"
-            android:clickable="true"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                android:id="@+id/tvMemoriaImg5"
+                android:clickable="true"
+                android:onClick="verificaTime"
+                />
         </LinearLayout>
 
 
@@ -112,16 +134,31 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="horizontal">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/palmeiras"
-            android:layout_weight="1"
-            android:id="@+id/tvMainImgPal"
-            android:clickable="true"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:layout_weight="1"
+                android:id="@+id/tvMemoriaImg6"
+                android:clickable="true"
+                android:onClick="verificaTime"
+                />
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btMainTentar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tentar novamente"/>
+
+    </LinearLayout>
+
 
 
 

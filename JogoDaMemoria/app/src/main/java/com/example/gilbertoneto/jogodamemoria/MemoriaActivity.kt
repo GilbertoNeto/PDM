@@ -11,8 +11,5 @@ class MemoriaActivity : AppCompatActivity() {
         setContentView(R.layout.activity_memoria)
     }
 
-   public fun verificaTime(view: View){
 
-        //Problemas para recuperar valores das imageView - Solicitar ajuda a professora/monitor
-   }
 }
